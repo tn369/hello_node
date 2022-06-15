@@ -9,7 +9,11 @@ server.listen(3000);
 console.log("Server start!")
 
 async function getFromClient(req, res) {
-    const content = ejs.render(index_page)
+    const params = {
+        title: "Indexページ",
+        content: "これはテンプレートを使ったサンプルページです。"
+    }
+    const content = ejs.render(index_page, params)
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write(content);
     res.end();
